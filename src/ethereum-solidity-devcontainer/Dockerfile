@@ -18,19 +18,6 @@ RUN \
         libc6 \
         rsync 
 
-RUN snap install solc
-
-RUN \
-    add-apt-repository -y ppa:ethereum/ethereum && \
-    add-apt-repository -y ppa:ethereum/ethereum-dev && \
-    apt-get update -y && \
-    apt-get upgrade -y
-
-
-RUN \
-    # apt-get install -y solc && \
-    apt-get install -y ethereum
-        
 
 
 RUN \
@@ -43,10 +30,26 @@ RUN \
     # npm installs automatically 
     npm -v
 
+
+# RUN snap install solc
+
+RUN npm install -g solc
+
+
+RUN \
+    add-apt-repository -y ppa:ethereum/ethereum && \
+    add-apt-repository -y ppa:ethereum/ethereum-dev && \
+    apt-get update -y && \
+    apt-get upgrade -y && \
+    # apt-get install -y solc && \
+    apt-get install -y ethereum
+
+
 ## Install the Hardhat (hh) shortcut tool
 RUN npm install -g hardhat-shorthand
 
 RUN npm install -g truffle ganache-cli
+
 
 # WORKDIR /workspace
 
