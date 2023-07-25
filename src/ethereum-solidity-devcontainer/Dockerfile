@@ -3,9 +3,9 @@
 
 # Base Image
 # =============================================================================
-# FROM ubuntu:22.04
-FROM ubuntu:20.04
-
+FROM ubuntu:22.04
+# FROM ubuntu:20.04
+# FROM ethereum/solc:0.8.20
 
 RUN \
     apt-get update -y && \
@@ -15,7 +15,10 @@ RUN \
         curl \
         wget \
         ca-certificates \
+        libc6 \
         rsync 
+
+RUN snap install solc
 
 RUN \
     add-apt-repository -y ppa:ethereum/ethereum && \
@@ -23,8 +26,9 @@ RUN \
     apt-get update -y && \
     apt-get upgrade -y
 
+
 RUN \
-    apt-get install -y solc && \
+    # apt-get install -y solc && \
     apt-get install -y ethereum
         
 
