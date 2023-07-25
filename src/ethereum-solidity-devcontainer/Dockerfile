@@ -3,7 +3,7 @@
 
 # Base Image
 # =============================================================================
-# FROM ubuntu:latest
+FROM ubuntu:latest
 
 
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/ubuntu/.devcontainer/base.Dockerfile
@@ -25,8 +25,6 @@
 # Install node.js
 # RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 # RUN apt install -y nodejs
-
-
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
