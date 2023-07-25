@@ -29,8 +29,12 @@ FROM ubuntu:latest
 RUN \
     apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y software-properties-common && \
-    apt-get install -y curl
+    apt-get install -y \
+        software-properties-common \
+        curl \
+        wget \
+        ca-certificates \
+        rsync 
 
 RUN \
     add-apt-repository -y ppa:ethereum/ethereum && \
@@ -38,8 +42,16 @@ RUN \
     apt-get install -y ethereum solc
 
 RUN \
-    curl -fsSL https://deb.nodesource.com/setup_14.x | -E bash && \
-    apt-get install -y nodejs
+    # get install script and pass it to execute: 
+    curl -sL https://deb.nodesource.com/setup_18.x | bash && \
+    # and install node 
+    apt-get install -y nodejs && \
+    # confirm that it was successful 
+    node -v && \
+    # npm installs automatically 
+    npm -v
+
+
 
 ## Install the Hardhat (hh) shortcut tool
 RUN npm install -g hardhat-shorthand
