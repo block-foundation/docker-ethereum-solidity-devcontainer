@@ -19,11 +19,14 @@ RUN \
 
 RUN \
     add-apt-repository -y ppa:ethereum/ethereum && \
+    add-apt-repository -y ppa:ethereum/ethereum-dev && \
     apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-        solc \
-        ethereum
+    apt-get upgrade -y
+
+RUN \
+    apt-get install -y solc && \
+    apt-get install -y ethereum
+        
 
 
 RUN \
