@@ -26,14 +26,19 @@ FROM ubuntu:latest
 # RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 # RUN apt install -y nodejs
 
-RUN apt-get update -y && \
+RUN \
+    apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y software-properties-common && \
-    apt-get install -y curl && \
+    apt-get install -y curl
+
+RUN \
     add-apt-repository -y ppa:ethereum/ethereum && \
     apt-get update -y && \
-    apt-get install -y ethereum solc && \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash && \
+    apt-get install -y ethereum solc
+
+RUN \
+    curl -fsSL https://deb.nodesource.com/setup_14.x | -E bash && \
     apt-get install -y nodejs
 
 ## Install the Hardhat (hh) shortcut tool
