@@ -48,7 +48,7 @@ RUN \
 ## Install the Hardhat (hh) shortcut tool
 RUN npm install -g hardhat-shorthand
 
-RUN npm install -g truffle ganache-cli
+# RUN npm install -g truffle ganache-cli
 
 
 # WORKDIR /workspace
