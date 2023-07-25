@@ -24,8 +24,9 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.202.5/containers/ubuntu/.devcontainer/base.Dockerfile
 
 # [Choice] Ubuntu version (use hirsuite or bionic on local arm64/Apple Silicon): hirsute, focal, bionic
-ARG VARIANT="hirsute"
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+# ARG VARIANT="ubuntu-21.04"
+# FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-21.04
 
 # Update all Ubuntu Packages
 RUN apt update && apt upgrade -y
