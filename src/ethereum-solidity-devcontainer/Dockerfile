@@ -49,6 +49,9 @@ RUN npm install -g hardhat-shorthand
 
 # RUN npm install -g truffle ganache-cli
 
+# Install Foundry
+RUN \
+    curl -L https://foundry.paradigm.xyz | bash
 
 # WORKDIR /workspace
 
